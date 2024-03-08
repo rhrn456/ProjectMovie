@@ -1,16 +1,17 @@
-       body {
+ 		 body {
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            height: 1000px;
+            height: 700px;
             margin: 0;
             background-color: #fff;
         }
 
-        #signup-form {
-        	margin-top:140px;
+        #update-form {
+        	margin-top: 150px;
+        	margin-bottom:30px;
             width: 600px;
-            height: 800px;
+            height: 880px;
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -20,38 +21,39 @@
 			            -1px 1px 10px rgba(0, 0, 0, 0.1);
         }
 
-        #signup-form h2 {
+        #update-form h3 {
             text-align: center;
         }
 
-        #signup-form form {
+        #update-form form {
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin-top: 20px;
         }
 
-        #signup-form label {
+        #update-form label {
             font-weight: bold;
+            text-align: center;
         }
 
-        #signup-form input[type="text"],
-        #signup-form input[type="password"] {
+        #update-form input[type="text"]{
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
         }
 
-        #signup-form button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            margin-top: -10px;
-        }
+		#update-form input[type="submit"].Btn {
+		    padding: 10px;
+		    border: none;
+		    border-radius: 5px;
+		    background-color: #007bff;
+		    color: #fff;
+		    cursor: pointer;
+		}
+		
+		#update-form input[type="submit"].Btn:hover {
+		    background-color: #0056b3;
+		}
 
-        #signup-form button:hover {
-            background-color: #0056b3;
-        }
+      

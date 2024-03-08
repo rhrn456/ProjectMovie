@@ -6,6 +6,18 @@
     <meta charset="UTF-8">
     <title>로그인 페이지</title>
     <link rel="stylesheet" href="/resources/css/userlogin.css">
+    <script>
+        // 에러 메시지를 확인하고 알람창을 표시하는 함수
+        function displayErrorMessage() {
+            var errorMessage = "${errorMessage}";
+            if (errorMessage) {
+                alert(errorMessage);
+            }
+        }
+
+        // 페이지가 로드될 때 에러 메시지를 표시하는 함수 호출
+        window.onload = displayErrorMessage;
+    </script>
 </head>
 <body>
   <%@ include file="header.jsp" %>
@@ -23,6 +35,7 @@
             <a href="/sign" class = "button">회원가입</a>
         </div>
     </div>
-    
+     <c:if test="${param.error ne null}">
+    </c:if>
 </body>
 </html>

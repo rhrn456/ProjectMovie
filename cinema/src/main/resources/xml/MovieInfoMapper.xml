@@ -3,4 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.cinema.mapper.MovieInfoMapper">
+
+
+	<!-- 영화 스케줄 정보 추가 -->
+	<insert id="insertMovieInfo"
+		parameterType="MovieInfo">
+		INSERT INTO movie_info (theater_id, movie_info_date, movie_info_time, movie_id)
+		VALUES (#{theaterId}, #{movieInfoDate}, #{movieInfoTime}, #{movieId})
+	</insert>
+	
+		<select id="getMovieInfoByTheaterId" parameterType="int" resultType="com.spring.cinema.model.TheaterSchedule">
+		SELECT theater.theater_loc, movie.movie_name, movie_info.movie_info_date, movie_info.movie_info_time
+		FROM movie_info
+		JOIN movie ON movie_info.movie_id = movie.movie_id
+		JOIN theater ON movie_info.theater_id = theater.theater_id
+		WHERE movie_info.theater_id = #{theaterId}
+	</select>
 </mapper>

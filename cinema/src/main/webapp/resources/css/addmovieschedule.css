@@ -1,16 +1,16 @@
-       body {
+ 		 body {
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            height: 1000px;
+            height: 700px;
             margin: 0;
             background-color: #fff;
         }
 
-        #signup-form {
-        	margin-top:140px;
+        #update-form {
+        	margin-top: 150px;
             width: 600px;
-            height: 800px;
+            height: 720px;
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -20,38 +20,40 @@
 			            -1px 1px 10px rgba(0, 0, 0, 0.1);
         }
 
-        #signup-form h2 {
+        #update-form h2 {
             text-align: center;
         }
 
-        #signup-form form {
+        #update-form form {
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin-top: 20px;
         }
 
-        #signup-form label {
+        #update-form label {
             font-weight: bold;
         }
 
-        #signup-form input[type="text"],
-        #signup-form input[type="password"] {
+        #update-form input[type="text"] {
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
         }
 
-        #signup-form button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            margin-top: -10px;
-        }
+		input[type="submit"] {
+		    background-color: #007bff; /* 기본 배경색 */
+		    color: white;
+		    padding: 12px 20px;
+		    border: none;
+		    border-radius: 4px;
+		    cursor: pointer; /* 기본 커서를 포인터로 설정 */
+		    transition: background-color 0.3s; /* 배경색 변화에 대한 transition */
+		}
+		
+		input[type="submit"]:hover {
+		    background-color: #0056b3; /* 마우스 호버 시 배경색 변경 */
+		}
 
-        #signup-form button:hover {
-            background-color: #0056b3;
-        }
+
+      

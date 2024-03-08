@@ -1,0 +1,98 @@
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin : 0 auto;
+    }
+    #main {
+        text-align: center;
+        margin : 0 auto;
+        margin-top : 200px;
+        margin-bottom:50px;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: right;
+        margin-top: 80px;
+    }
+    .movie-table {
+        width: 90%;
+        border-collapse: collapse;
+    }
+    .movie-table th, .movie-table td {
+        border: 2px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+    .addBtn {
+    float: left; /* 우측 정렬 */
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right:10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-align: center; /* 텍스트 가운데 정렬 */
+    transition: background-color 0.3s; /* 배경색 변화 효과 */
+	}
+	
+	.addBtn:hover {
+    background-color: #45a049; /* 호버 효과: 배경색 변화 */
+	}
+    .main {
+        margin-bottom: 60px;
+    }
+    .th-num {
+        width: 30px;
+    }
+    .th-id {
+        width: 100px;
+    }
+    .th-poster {
+        width: 200px;
+    }
+    .th-title {
+        width: 500px;
+    }
+    .th-director {
+    	width: 20%
+    }
+    .th-date {
+        width: 30%;
+    }
+    .th-actions {
+        width: 20%;
+    }
+    .poster {
+        max-width: 100%;
+        height: auto;
+    }
+    .Btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left:5px;
+	}
+	
+	.updateBtn {
+	    background-color: #007bff;
+	    color: #fff;
+	}
+	
+	.deleteBtn {
+	    background-color: #dc3545;
+	    color: #fff;
+	}
+	
+	.Btn:hover {
+	    filter: brightness(90%);
+	}

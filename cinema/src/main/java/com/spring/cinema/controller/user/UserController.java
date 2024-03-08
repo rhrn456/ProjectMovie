@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.cinema.mapper.ReviewMapper;
+import com.spring.cinema.model.BookingInfo;
 import com.spring.cinema.model.MovieBooking;
 import com.spring.cinema.model.Review;
 import com.spring.cinema.model.User;
@@ -52,27 +54,29 @@ public class UserController {
 	//로그인
 	@PostMapping("/log")
 	public String login(@RequestParam("userId") String userId, @RequestParam("userPassword") String userPassword,
-			HttpSession session) {
-		User user = userServiceimpl.getUserByuserId(userId);
-		if (user != null && BCrypt.checkpw(userPassword, user.getUserPassword())) {
-			
-			session.setAttribute("userId", user.getUserId());
-			session.setAttribute("userAdmin", user.getUserAdmin());
+	        HttpSession session, RedirectAttributes redirectAttributes) {
+	    User user = userServiceimpl.getUserByuserId(userId);
+	    if (user != null && BCrypt.checkpw(userPassword, user.getUserPassword())) {
+	        
+	        session.setAttribute("userId", user.getUserId());
+	        session.setAttribute("userAdmin", user.getUserAdmin());
 
-			if (user.getUserAdmin()) {
-				return "redirect:/main";
-			} else {
-				return "redirect:/main";
-			}
-		} else {
-			return "redirect:/login?error=true";
-		}
+	        if (user.getUserAdmin()) {
+	            return "redirect:/main";
+	        } else {
+	            return "redirect:/main";
+	        }
+	    } else {
+	        redirectAttributes.addFlashAttribute("errorMessage", "해당하는 정보가 없습니다.");
+	        return "redirect:/login?error=true";
+	    }
 	}
 	
 	//로그아웃
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
+		System.out.println("로그아웃");
 		return "redirect:/main";
 	}
 
@@ -121,7 +125,7 @@ public class UserController {
 			//유저 정보 받기
 			User user = userServiceimpl.getUserByuserId(userId);
 			//예약 정보 받기
-			ArrayList<MovieBooking> booking = movieBookingService.getBookByuserId(userId);
+			ArrayList<BookingInfo> booking = movieBookingService.getBookByuserId(userId);
 			System.out.println(booking);
 			ArrayList<Review> reviewsList = reviewServiceimpl.getreviewById(userId);
 			model.addAttribute("user", user);
@@ -146,11 +150,12 @@ public class UserController {
 		
 	//회원 정보 삭제
 	@GetMapping(value="/userDelete/{userId}")
-	public String userDelete(@PathVariable String userId) {
+	public String userDelete(@PathVariable String userId,HttpSession session) {
 
 		boolean result = userServiceimpl.userDelete(userId);
 		if(result) {
 			System.out.println(result);
+			session.invalidate();
 			return "redirect:/login";
 		}else {
 		return "redirect:/error";

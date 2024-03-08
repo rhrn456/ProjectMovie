@@ -26,10 +26,9 @@
            <a href="/movies">영화</a>
            <a href="/theaters">극장</a>
             <a href="/book">예매</a>
-            <c:if test="${not empty sessionScope.userAdmin}">
-           <a href="/registration?userId=${sessionScope.userId}">영화 등록</a>
-
-             </c:if>
+				<c:if test="${sessionScope.userAdmin eq true}">
+			    <a href="/registration">영화 등록</a>
+			</c:if>
             </div>
             <div class ="log">
             <c:if test="${empty sessionScope.userId}">
@@ -71,10 +70,4 @@
 </div>
 
 
-<div class="modal">
-        <div class="modal-content">
-            <span class="modal-close-button">&times;</span>
-            <h1>Add What you want here.</h1>
-        </div>
-</div>
 

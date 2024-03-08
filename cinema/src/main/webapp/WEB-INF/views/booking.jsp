@@ -164,6 +164,7 @@
 	<input type="hidden" id="movieId" value="">
 	<input type="hidden" id="theaterId" value="">
 	<input type="hidden" id="movieInfoDate" value="">
+	
 	<input type="hidden" id="movieInfoId" value="">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -185,11 +186,12 @@ function infoList(obj, movieId, theaterId, movieInfoDate, movieInfoTime){
         $("#movieInfoDate").val(movieInfoDate);
         $(".date-list p").removeClass("active");
         $(obj).addClass("active");
+
         data = {
-        		"movieId" : movieId,
-        		"theaterId" : theaterId,
-                "movieInfoDate" : movieInfoDate
-            	}
+                "movieInfoDate" : movieInfoDate,
+                "theaterId" : theaterId,
+                "movieId" : movieId
+            }
         listFlag = "timeList";
         url = "/book/"+listFlag;
         listStr = "시간";
@@ -199,8 +201,8 @@ function infoList(obj, movieId, theaterId, movieInfoDate, movieInfoTime){
         $(".theater-list p").removeClass("active");
         $(obj).addClass("active");
         data = {
-        	"movieId" : movieId,
-            "theaterId" : theaterId
+            "theaterId" : theaterId,
+            "movieId" : movieId
         }
         listFlag = "dateList";
         url = "/book/"+listFlag;

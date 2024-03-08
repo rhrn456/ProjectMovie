@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.cinema.mapper.MovieBookingMapper;
+import com.spring.cinema.model.BookingInfo;
 import com.spring.cinema.model.Movie;
 import com.spring.cinema.model.MovieBooking;
 import com.spring.cinema.model.MovieInfo;
@@ -39,15 +40,14 @@ public class MovieBookingServiceImpl implements MovieBookingService{
 
 
 	@Override
-	public List<MovieInfo> getdateBymovieId(MovieInfo movieInfo) {
-		return movieBookingMapper.getdateBymovieId(movieInfo);
+	public List<MovieInfo> getdateBymovieId(int theaterId, int movieId) {
+		return movieBookingMapper.getdateBymovieId(theaterId,movieId);
 	}
 
 
 	@Override
-	public List<MovieInfo> gettimeBymovieId(MovieInfo movieInfo) {
-		System.out.println(movieBookingMapper.gettimeBymovieId(movieInfo));
-		return movieBookingMapper.gettimeBymovieId(movieInfo);
+	public List<MovieInfo> gettimeBymovieId(Date movieInfoDate,int movieId, int theaterId) {
+		return movieBookingMapper.gettimeBymovieId(movieInfoDate,movieId,theaterId);
 	}
 
 
@@ -64,7 +64,7 @@ public class MovieBookingServiceImpl implements MovieBookingService{
 	}
 	
 	@Override
-	public ArrayList<MovieBooking> getBookByuserId(String userId){
+	public ArrayList<BookingInfo> getBookByuserId(String userId){
 	return movieBookingMapper.getBookByuserId(userId);
 	}
 }

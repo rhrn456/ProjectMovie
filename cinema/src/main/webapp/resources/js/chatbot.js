@@ -14,10 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.chat-button').style.display = "block";
         document.querySelector('.chat-box').style.visibility = "hidden";
     });
-
-    document.querySelector('.modal-close-button').addEventListener("click" , function(){
-        document.querySelector(".modal").classList.toggle("show-modal");
-    });
 });
 let chatBox = document.getElementById("chat-box");
 

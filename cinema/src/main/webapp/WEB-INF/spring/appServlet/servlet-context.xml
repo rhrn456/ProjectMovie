@@ -48,6 +48,8 @@
 
 		<mvc:interceptor> 
 	        <mvc:mapping path="/registration"/> 
+	        <mvc:mapping path="/adminPage"/> 
+	        <mvc:mapping path="/updateMovie"/> 
 	        <mvc:exclude-mapping path="/header.jsp"/> 
 	        <bean id="AdminInterceptor" class="com.spring.cinema.grobal.interceptor.AdminInterceptor"/> 
 	    </mvc:interceptor>

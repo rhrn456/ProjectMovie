@@ -20,12 +20,6 @@ public class StompChatController {
 
 
     
-    @MessageMapping(value = "/chatbot/enter")
-    public void enterChatBot(ChatBotMessage message){
-    	log.info("StompChatController : enterChatBot()");
-        template.convertAndSend("/sub/chatbot" + message.getMessage(), message);
-    }
-    
     @MessageMapping(value = "/chatbot/message")
     public void messageChatBot(ChatBotMessage message){
     	log.info("StompChatController : messageChatBot()");

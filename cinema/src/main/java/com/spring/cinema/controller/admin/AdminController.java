@@ -1,5 +1,6 @@
 package com.spring.cinema.controller.admin;
 
+import java.sql.Time;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.cinema.model.Movie;
+import com.spring.cinema.model.MovieInfo;
+import com.spring.cinema.model.Theater;
 import com.spring.cinema.service.admin.AdminService;
+import com.spring.cinema.service.user.MovieInfoService;
+import com.spring.cinema.service.user.TheaterService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,6 +29,9 @@ import lombok.RequiredArgsConstructor;
 public class AdminController {
 	
 	private final AdminService adminService;
+	private final TheaterService theaterService;
+	private final MovieInfoService movieInfoService;
+	
 	
 	
 	// 영화 정보 리스트 불러오기
@@ -63,7 +71,7 @@ public class AdminController {
 	// 영화 정보 수정
 	 @PostMapping("/updateMovie/{movieId}")
 	 public String updateMovie(@PathVariable Long movieId, @ModelAttribute Movie updatedMovie, RedirectAttributes redirectAttributes) {
-
+		 System.out.println(updatedMovie);
 	     // 수정된 영화 정보를 저장합니다.
 	     adminService.updateMovie(updatedMovie);
 
@@ -83,12 +91,31 @@ public class AdminController {
 	     // 영화 정보를 삭제합니다.
 	     adminService.deleteMovie(movieToDelete);
 
-	     addRedirectMessage(redirectAttributes,"영화 정보가 삭제되었습니다.");
+	     addRedirectMessage(redirectAttributes,"complete remove movie");
 	     
-	     return "영화 정보가 삭제되었습니다.";
+	     return "complete remove movie";
+	 }
+	//영화 상영 날짜 설정 페이지
+	 @GetMapping("/movieschedule")
+	 public String addMovieSchedule(Model model) {
+		 List<Movie> movieList = adminService.getMovieList();
+		 List<Theater> teaterList = theaterService.getAllTheaters();
+		 System.out.println(teaterList);
+		 System.out.println(movieList);
+		model.addAttribute("movieList", movieList);
+		model.addAttribute("teaterList", teaterList);
+		 return "addMovieSchedule";
 	 }
 	
-	
+	 @PostMapping("/addmovieschedule")
+	 public String addShcedule(@ModelAttribute MovieInfo movieInfo) {
+		 System.out.println(movieInfo);
+		 boolean result = movieInfoService.insertMovieInfo(movieInfo);
+		 if(result) {
+			 return "/adminPage";
+		 }
+		 return "/main";
+	 }
 	//
 	private void addRedirectMessage(RedirectAttributes attributes, String message) {
 		attributes.addFlashAttribute("message", message);

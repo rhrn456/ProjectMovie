@@ -3,6 +3,9 @@
 package com.spring.cinema.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.spring.cinema.model.MovieInfo;
 import com.spring.cinema.model.Theater;
 
@@ -17,4 +20,9 @@ public interface TheaterMapper {
    List<MovieInfo> getAvailableTimesByTheaterIdAndMovieIdAndDate(int theaterId, int movieId, String date);
 
    int saveBooking(MovieInfo bookInfo);
+
+   Theater selectOne(String theaterLoc);
+
+    List<Theater> selectList();
+
 }

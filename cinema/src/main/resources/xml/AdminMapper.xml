@@ -16,7 +16,6 @@
 			resultMap = "movieResultMap">
 		SELECT * FROM movie	
 	</select>
-	
 	<select id="getMovieById"
 			parameterType="long"
 			resultMap = "movieResultMap">
@@ -43,7 +42,7 @@
         	movie_story = #{movieStory},
         	movie_date = #{movieDate},
         	director_name = #{directorName},
-        	movie_url = #{movieUrl}
+        	movie_img_url = #{movieImgUrl}
     	WHERE movie_id = #{movieId}
   	</update>
   

@@ -29,6 +29,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public String handleIllegalArgumentException(IllegalArgumentException e, Model model) {
         model.addAttribute("exceptionMessage", "잘못된 인자로 인한 오류가 발생했습니다.");
+        System.out.println(e);
         return "error/400";
     }
 

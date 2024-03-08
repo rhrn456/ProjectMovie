@@ -1,0 +1,129 @@
+ 		body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+		.movie-info{
+			font-size:23px;
+		}
+        .movie-info-section {
+            margin-top: 100px;
+        }
+
+        .movie-info-section, .review-section, .story-section {
+            margin-bottom: 20px;
+            width: 600px;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .review-section, .story-section {
+            border-top: 2px solid #ccc;
+        }
+
+        .movie-image img {
+            width: 500px;
+        }
+
+        .review {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            text-align: left;
+        }
+
+        .review p {
+            margin: 0;
+        }
+
+        .review small {
+            color: #666;
+        }
+
+        .modal-dialog {
+            width:300px;
+            height:300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .movie-info h2, .story-section h2, .review-section h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #333;
+            border-top: 2px solid #ccc;
+            padding-top: 10px;
+        }
+
+        #MovieCommentForm textarea {
+            width: 400px;
+        }
+
+        .review-controls {
+            display: flex;
+            text-align: right;
+        }
+
+        .review-controls button {
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+
+		
+		/* 모달 닫기 버튼 스타일 */
+		.close {
+		  color: #aaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+		
+		.close:hover,
+		.close:focus {
+		  color: black;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+		.modal-container {
+         display: none;
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         background-color: rgba(255, 255, 255, 1); 
+         padding: 20px;
+         border: 2px solid black;
+         border-radius: 5px;
+         z-index: 9999;
+         color: black; 
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+		}
+		
+		.modal-content {
+		text-align: center;
+
+		}
+		
+		.modal-button {
+		          margin-top: 20px;
+		}
