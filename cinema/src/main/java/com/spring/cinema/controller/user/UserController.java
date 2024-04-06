@@ -62,7 +62,7 @@ public class UserController {
 	        session.setAttribute("userAdmin", user.getUserAdmin());
 
 	        if (user.getUserAdmin()) {
-	            return "redirect:/main";
+	            return "redirect:/adminPage";
 	        } else {
 	            return "redirect:/main";
 	        }
